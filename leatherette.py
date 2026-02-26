@@ -190,16 +190,16 @@ def main():
             done_channels = True
             for c_in in d['channels']:
                 c_out = sub_el(out, 'channel',
-                                    id='I%s.%s.zap2it.com' % (c_in['channelNo'], c_in['channelId']))
+                                    id='I%s.%s.gracenote.com' % (c_in['channelNo'], c_in['channelId']))
                 sub_el(c_out, 'display-name',
                               text='%s %s' % (c_in['channelNo'], c_in['callSign']))
                 sub_el(c_out, 'display-name', text=c_in['channelNo'])
                 sub_el(c_out, 'display-name', text=c_in['callSign'])
-                channel_thumb = str(c_in['thumbnail']).replace("//", "https://").split("?")[0]
+                channel_thumb = str(c_in['thumbnail']).replace("//zap2it", "https://dshm").split("?")[0]
                 sub_el(c_out, 'icon', src=channel_thumb)
 
         for c in d['channels']:
-            c_id = 'I%s.%s.zap2it.com' % (c['channelNo'], c['channelId'])
+            c_id = 'I%s.%s.gracenote.com' % (c['channelNo'], c['channelId'])
             for event in c['events']:
                 prog_in = event['program']
                 tm_start = tm_parse(event['startTime'])
@@ -228,7 +228,7 @@ def main():
                     sub_el(prog_out, 'genre', lang='en', text=f[7:])
 
                 if event["thumbnail"] is not None:
-                    content_thumb = str("https://zap2it.tmsimg.com/assets/" + str(event['thumbnail']) + ".jpg")
+                    content_thumb = str("https://dshm.tmsimg.com/assets/" + str(event['thumbnail']) + ".jpg")
                     sub_el(prog_out, 'icon', src=content_thumb)
 
                 if event['rating']:
