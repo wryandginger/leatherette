@@ -195,7 +195,7 @@ def main():
                               text='%s %s' % (c_in['channelNo'], c_in['callSign']))
                 sub_el(c_out, 'display-name', text=c_in['channelNo'])
                 sub_el(c_out, 'display-name', text=c_in['callSign'])
-                channel_thumb = str(c_in['thumbnail']).replace("//zap2it", "https://dshm").split("?")[0]
+                channel_thumb = str(c_in['thumbnail']).replace("//zap2it", "https://emby").split("?")[0]
                 sub_el(c_out, 'icon', src=channel_thumb)
 
         for c in d['channels']:
@@ -228,7 +228,7 @@ def main():
                     sub_el(prog_out, 'genre', lang='en', text=f[7:])
 
                 if event["thumbnail"] is not None:
-                    content_thumb = str("https://dshm.tmsimg.com/assets/" + str(event['thumbnail']) + ".jpg")
+                    content_thumb = str("https://emby.tmsimg.com/assets/" + str(event['thumbnail']) + ".jpg")
                     sub_el(prog_out, 'icon', src=content_thumb)
 
                 if event['rating']:
