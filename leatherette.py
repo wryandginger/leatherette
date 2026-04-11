@@ -195,7 +195,7 @@ def main():
                               text='%s %s' % (c_in['channelNo'], c_in['callSign']))
                 sub_el(c_out, 'display-name', text=c_in['channelNo'])
                 sub_el(c_out, 'display-name', text=c_in['callSign'])
-                channel_thumb = str(c_in['thumbnail']).replace("//zap2it", "https://emby").split("?")[0]
+                channel_thumb = str(c_in['thumbnail']).replace("//", "https://").split("?")[0]
                 sub_el(c_out, 'icon', src=channel_thumb)
 
         for c in d['channels']:
