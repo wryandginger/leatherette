@@ -228,7 +228,7 @@ def main():
                     sub_el(prog_out, 'genre', lang='en', text=f[7:])
 
                 if event["thumbnail"] is not None:
-                    content_thumb = str("https://emby.tmsimg.com/assets/" + str(event['thumbnail']) + ".jpg")
+                    content_thumb = str("https://tmsimg.fancybits.co/assets/" + str(event['thumbnail']) + ".jpg")
                     sub_el(prog_out, 'icon', src=content_thumb)
 
                 if event['rating']:
